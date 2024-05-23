@@ -1,0 +1,46 @@
+1	Introduction ~0.5 page
+
+2	Indicator Overview ~1 page 
+Manual Strategy
+Strategy Learner
+	for each indicator discuss the following: 
+		Include a brief description of how the indicator is implemented. 
+		Discuss the parameters for each indicator that are optimized in both Manual Strategy and Strategy Learner. 
+Hint: If you use Bollinger Bands in Project 6 and want to use that indicator here, you can replace it with BB %B, which should work better with this assignment. 
+
+3	Manual Strategy: ~3 pages 
+Describe how you combined your indicators to create an overall signal. Explain how and why you decide to enter and exit your positions? Why do you believe (or not) that this is an effective strategy?
+Compare the performance of your Manual Strategy versus the benchmark for the in-sample and out-of-sample time periods. Provide your charts to support the discussion. 
+Evaluate the performance of your strategy in the out-of-sample period. Note that you should not train or tweak your approach to this data. You should use the classification learned using the in-sample data only.
+Explain WHY these differences occur.  
+
+4	Strategy Learner: ~1.5 pages 
+The centerpiece of this section should be the description of how you utilized your learner to determine trades: 
+Describe the steps you took to frame the trading problem as a learning problem for your learner. 
+Describe the hyperparameters, their values, and how they were determined. 
+Describe how you discretized (standardized) or otherwise adjusted your data. If this was not performed or necessary, explain why. 
+
+5	Experiment 1 (Manual Strategy / Strategy Learner): ~1.5 pages 
+https://lucylabs.gatech.edu/ml4t/summer2022/project-8/
+
+6	Experiment 2 (Strategy Learner): ~1.5 pages 
+
+7	References: ~0.25 pages (Optional) 
+
+if commission > profit, then don't trade
+commission: 9.95
+impact = 0.005
+
+to discretize: np.digitize or qcut
+
+exp 2: 
+3 diff impact values: 0.2, 0.4, 0.8
+
+references: 
+look up each indicator on investopedia, summarize it, add reference
+
+strategy learner: add evidence:
+minimum iterations (while ! converged): 10
+max: 100
+train: rar=0
+test: rar = 0.5

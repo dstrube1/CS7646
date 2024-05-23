@@ -1,0 +1,23 @@
+P3 Typoes / qestions:
+
+(i.g., the first column of data in the Istanbul file, which should be ignored).
+=>
+(i.e., the first column of data in the Istanbul file, which should be ignored).
+or
+(e.g., the first column of data in the Istanbul file, which should be ignored).
+
+It must also be modified to run the experiments.
+=>
+It must be modified to run the experiments.
+
+Implement testlearner.py to perform the experiment and report analysis as required.
+=>
+Implement testlearner.py to perform the experiments and report analysis as required.
+
+
+
+
+P3 questions:
+
+"You may not cast a variable of another data type into an NDArray.  "
+

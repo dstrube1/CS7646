@@ -1,0 +1,197 @@
+01-06 - 10:
+beta: polynomial coefficient
+alpha: intersect
+
+Scatter plot of daily returns:
+If beta (slope scatter plot between two stocks) = 1: 
+on average, as stock 1 does, so does stock #2
+
+If beta (slope scatter plot between two stocks) < 1: 
+on average, as stock 1 (on x axis) does, stock #2 does worse
+
+If beta (slope scatter plot between two stocks) > 1: 
+on average, as stock 1 (on x axis) does, stock #2 does better
+
+alpha: where the regression line intersects the vertical axis???
+if alpha is positive, stock 2 is doing better than stock 1
+
+correlation: how tightly do the dots in a scatter plot fit the line?
+0= no correlation
+1= highly correlated
+
+
+python ~/Projects/heic2jpg/heic2jpg.py -d /Users/dstrube/Downloads/test -o /Users/dstrube/Downloads/test -q 50
+
+regression:
+predicting a continuous or quantitative output value
+
+classification:
+predicting a non-numerical value: a categorical or qualitative output
+
+larger sharpe ratios are better
+
+kernel regression is like KNN, except points are weighted based on their distance from each other
+
+parametric regression: 
+don't have to store the original data - space efficient
+can't update the model as more data is gathered
+training is slow
+querying is fast
+Ex: linear
+
+nonparametric regression: opposite ^
+Ex: KNN
+
+For KNN, if k = n, the line will be straight; if k=1, the line will overfit
+
+For linear, as d grows (mx+b, mx^2+b, mx^3+b...), the line will overfit
+
+RMS: root mean square
+
+MSE: Mean square error = 1/n * Sum (from i=1 to n) of (yi - f(xi))^2
+where f(xi) is the prediction that f gives for the ith observation
+
+Variance: the amount by which the predicted target function would change if we estimated it using a different training data set.
+
+Bias: the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model.
+
+more flexible methods: the variance will increase and the bias will decrease; f(x) = x^3 is more flexible than f(x) = x^2;
+
+bias tends to initially decrease faster than the variance increases and MSE declines, until it (MSE) doesn't
+
+low bias but high variance: drawing a curve that passes through every training observation
+low variance but high bias: fitting a horizontal line to the data
+
+DecisionTree Pt 2: at about 50 min: BagLearner of RandomTrees will perform better than DecisionTree
+
+cost of learning from low to high: KNN, linear regression, Decision tree
+cost of query from low to high: linear regression, Decision tree, KNN
+
+ETF: exchange traded fund
+
+PV = (FV / (1 + IR)^i)
+PV: present value
+FV: future value
+IR: interest rate
+i: how far into the future the payment will be delivered; if now, i = 0, (1 + IR)^i = 1, PV = FV
+	if 1 year from now, i = 1
+	if IR = 1% and FV = 1$, then PV = 1/(1 + 0.01)^1 = 0.99$
+	if IR = 5%, then PV = 1/(1 + 0.05) = 0.95$
+discount rate (DR): if future payor is less trustworthy / more risky, then IR must be higher
+intrinsic value: FV / DR
+
+Lesson 02-03, video "7. Intrinsic value quiz (Answer)" says PV = FV / DR ("present value equals future value divided by discount rate")
+This should be IV = FV / DR ("Intrinsic value equals future value divided by discount rate")
+
+information that affects stock price:
+	company specific news (e.g. CEO is ill)
+	sector specific news (news that affects some companies)
+	market-wide news that affects all companies in the market
+
+Capital Assets Pricing Model (CAPM) Equation:
+i: one of the stocks in the market
+ri(t) = Bi * rm(t) + ai(t)
+ri(t): return for an individual stock at time ( or on a particular day) t
+Bi: the slope of the line comparing stock to market
+rm(t): return on the market (S&P500) at time ( or on a particular day) t
+ai(t): the residual component, random & expected avg 0, y intercept of line comparing stock to market
+
+Bp = Sum(i) of wi * Bi
+Bp: Beta of the whole portfolio
+wi: weight of the stock
+
+ra = 0.1%, 0.05
+rb = 0.2%, 0.1
+
+deep neural networks or DNNs include common variants such as: 
+	convolutional neural networks (CNNs) for images
+	recurrent neural networks (RNNs) for sequences
+
+R^2 measures the proportion of variability in Y that can be explained using X
+
+additive assumption: the effect of changes in a predictor Xj on the response Y is independent of the values of the other predictors
+linear assumption: the change in the response Y due to a one-unit change in Xj is constant, regardless of the value of Xj
+hierarchical principle: if we include an interaction in a model, we should also include the main effects, even if the p-values associated with their coefficients are not significant
+
+Collinearity: the situation in which two or more predictor variables are closely related to one another
+power of the hypothesis test: the probability of correctly detecting a non-zero coefficient
+multicollinearity: collinearity exists between three or more variables even if no pair of variables has a particularly high correlation
+variance inflation factor (VIF): the ratio of the variance of βˆj when fitting the full model divided by the variance of βˆj if fit on its own; 
+	smallest possible value for VIF is 1, which indicates the complete absence of collinearity
+
+AUM: assets under management
+
+9 ways that backtesting lies: (https://www.youtube.com/watch?v=2e2Yr-Bpo-w)
+1: in sample backtesting: should be out-of-sample; 
+	how to avoid (HTA): don't backtest on the same data used to train the model
+2: survivor bias: selective use of data that emphasizes examples that are alive at the end
+	HTA: use historic index membership; pair with SBF-free data; use the indices as your universe for testing
+3: observing the close: a specific case of look-ahead bias; also : earnings reports, news feeds; (practically skipped over in the lecture)
+	HTA: ensure info with timestamp X can't be acted on until X+1 (19:19 in the video)
+4: ignoring market impact: trading affects prices; Hx data doesn't include your trades
+	HTA: include a slippage or market impact model in backtests
+5: ?
+6: ?
+7: ?
+8: ?
+9: ?
+
+Vectorize Me review covered starting at 29:20 here:
+https://www.youtube.com/watch?v=2e2Yr-Bpo-w
+basket indicator looks for divergence between stock and "index", ie, stock market
+indicators:
+	price / SMA (Simple Moving Average) ratio?
+		https://www.investopedia.com/terms/s/sma.asp
+	bollinger bands
+	relative strength index (RSI): ratio of how much stock goes up when it goes up / how much does it go down when it goes down
+		0-100 scale; < 30 : oversold / unfairly punished and will soon go up again; > 70: overbought
+
+In the context of Grinold Fundamental Law:
+IR: information ratio
+IC: information coefficient
+Expected return: (chance that you'll win * what you'd win) + (chance that you'll lose * what you'd win (in other words, * -lose))
+Expected risk: (probability of loss)^number of coin flips
+
+Portfolio optimization = mean variance optimization
+
+===
+From Midterm survey, answer to question "What, if any, changes would you like to see made to CS7646?"
+1- Using notes and other material during exams. The way exams are restricted now does not reflect real world experience. In the real world, when faced with a challenge, I can refer to my notes to figure out problems. Memorizing and learning are not the same thing!
+
+2- Seeing correct answers to questions I got wrong on exams or things I got wrong in assignments. Without being able to learn from my mistakes, this institute calling itself educational is a sick joke.
+
+3- Compare to CS7641: While Prof Isbell is a subpar professor, he at least was present in real time interactions with students in CS7641. I haven't seen any recent interactions from Prof Balch and the only time I see anything from Prof Joyner is in announcements. (This is very surprising & disheartening given how active and helpful Prof Joyner was in both CS6300 and CS6750.) Only the TAs ever seem to respond to questions in the forum threads. It seems like CS7646 was created years and set on autopilot, and it's getting moldy. It should be scrapped and revised with new content designed to be educational, and the professor should reconsider what it means to be an educator.
+
+===
+RL Problem:
+S = state
+pi = policy
+a = action
+T = transition
+r = reward
+Q = algorithm to determine the policy
+MDP: Markov decision problem
+
+	Q-learning: 
+model free - does not use models of T or r
+builds a table of utility values (Q-values) as the agent interacts with the world
+Q-values used at each step to select best action based on what's been learned so far
+guaranteed to give optimal policy
+
+pi(s) = argmax(a)(Q[s,a]): step thru each value of a, keep s constant
+pi*(s): optimal policy
+Q*[s,a]: optimal Q
+
+<s,a,s',r> : experience tuple
+
+alpha: learning rate, 0 - 1, usually 0.2
+gamma: discount rate, how much we value later rewards
+discretize: convert a real number to an integer
+rar: random action rate
+radr: random action decay rate
+
+MACD: moving average convergence/divergence: 12-Period EMA − 26-Period EMA
+EMA: exponential moving average
+PPI: Percentage Price Oscillator
+
+conda activate ml4t 

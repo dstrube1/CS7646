@@ -1,0 +1,14 @@
+: In Experiment 1, based on the experiment results calculate and provide the estimated probability of winning $80 within 1000 sequential bets. Thoroughly explain your reasoning for the answer using the experiment output. Your explanation should NOT be based on estimates from visually inspecting your plots, but from analyzing any output from your simulation.
+
+: In Experiment 1, what is the estimated expected value of winnings after 1000 sequential bets? Thoroughly explain your reasoning for the answer. 
+
+: In Experiment 1, do the upper standard deviation line (mean + stdev) and lower standard deviation line (mean – stdev) reach a maximum (or minimum) value and then stabilize? Do the standard deviation lines converge as the number of sequential bets increases? Thoroughly explain why it does or does not. 
+
+: In Experiment 2, based on the experiment results calculate and provide the estimated probability of winning $80 within 1000 sequential bets. Thoroughly explain your reasoning for the answer using the experiment output. Your explanation should NOT be based on estimates from visually inspecting your plots, but from analyzing any output from your simulation.
+
+: In Experiment 2, what is the estimated expected value of winnings after 1000 sequential bets? Thoroughly explain your reasoning for the answer. 
+
+: In Experiment 2, do the upper standard deviation line (mean + stdev) and lower standard deviation line (mean – stdev) reach a maximum (or minimum) value and then stabilize? Do the standard deviation lines converge as the number of sequential bets increases? Thoroughly explain why it does or does not. 
+
+: What are some of the benefits of using expected values when conducting experiments instead of simply using the result of one specific random episode? 
+
